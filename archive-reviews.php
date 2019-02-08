@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="sp-xs-2 sp-md-3"></div>
+<?php if (function_exists('kama_breadcrumbs')) kama_breadcrumbs(' » '); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-8">
