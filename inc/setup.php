@@ -6,6 +6,14 @@ function bw_switch_theme()
         update_option('uploads_use_yearmonth_folders', '');
     }
 
+    /*if(get_option('thumbnail_size_w') != 170) {
+	    update_option('thumbnail_size_w', '170');
+    }
+
+    if(get_option('thumbnail_size_h') != 170) {
+	    update_option('thumbnail_size_h', '170');
+    }*/
+
     update_option('sidebars_widgets', array(
         'wp_inactive_widgets' => array(),
         'sidebar-widget-area' => array(),
@@ -23,6 +31,29 @@ function bw_switch_theme()
 
 add_action('after_switch_theme', 'bw_switch_theme');
 
+function bw_custom_menu_order($menu_ord) {
+	if (!$menu_ord) return true;
+
+	return array(
+		'index.php', // Dashboard
+		'separator1', // First separator
+		'edit.php', // Posts
+		'upload.php', // Media
+		'link-manager.php', // Links
+		'edit.php?post_type=page', // Pages
+		'edit-comments.php', // Comments
+		'separator2', // Second separator
+		'themes.php', // Appearance
+		'plugins.php', // Plugins
+		'users.php', // Users
+		'tools.php', // Tools
+		'options-general.php', // Settings
+		'separator-last', // Last separator
+	);
+}
+//add_filter('custom_menu_order', 'bw_custom_menu_order');
+//add_filter('menu_order', 'bw_custom_menu_order');
+
 function bw_setup()
 {
     /** Translate Theme */
@@ -35,11 +66,24 @@ function bw_setup()
     add_theme_support("title-tag");
     add_theme_support("custom-header");
     add_theme_support("custom-background");
+	add_theme_support('starter-content', [
+		'posts' => [
+			'home' => [
+				'post_type' => 'page',
+				'post_name' => 'home',
+				'post_title' => 'Home',
+				'post_content' => '',
+				'template'   => 'page-home.php',
+			],
+		],
+
+	]);
     add_theme_support('woocommerce');
 
     add_editor_style('theme/css/editor-style.css');
 
     update_option('thumbnail_size_w', 170);
+    update_option('thumbnail_size_h', 170);
     update_option('medium_size_w', 470);
     update_option('large_size_w', 970);
 }
