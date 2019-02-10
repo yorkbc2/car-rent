@@ -21,6 +21,8 @@
 
 <?php get_template_part('loops/content', 'page'); ?>
 
+<?php scroll_top(); ?>
+
 <?php wp_footer(); ?>
 
 </body>
