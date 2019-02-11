@@ -31,28 +31,33 @@ function bw_switch_theme()
 
 add_action('after_switch_theme', 'bw_switch_theme');
 
-function bw_custom_menu_order($menu_ord) {
-	if (!$menu_ord) return true;
+function bw_custom_menu_order($menu_ord)
+{
+    if (!$menu_ord) {
+        return true;
+    }
 
-	return array(
-		'index.php', // Dashboard
-		'separator1', // First separator
-		'edit.php', // Posts
-		'upload.php', // Media
-		'link-manager.php', // Links
-		'edit.php?post_type=page', // Pages
-		'edit-comments.php', // Comments
-		'separator2', // Second separator
-		'themes.php', // Appearance
-		'plugins.php', // Plugins
-		'users.php', // Users
-		'tools.php', // Tools
-		'options-general.php', // Settings
-		'separator-last', // Last separator
-	);
+    return [
+        'index.php', // Dashboard
+        'separator1', // First separator
+        'edit.php?post_type=page', // Pages
+        'edit.php', // Posts
+        'edit-comments.php', // Comments
+        'edit.php?post_type=reviews', // Reviews
+        'upload.php', // Media
+        'link-manager.php', // Links
+        'separator2', // Second separator
+        'plugins.php', // Plugins
+        'users.php', // Users
+        'options-general.php', // Settings
+        'themes.php', // Appearance
+        'tools.php', // Tools
+        'separator-last', // Last separator
+    ];
 }
-//add_filter('custom_menu_order', 'bw_custom_menu_order');
-//add_filter('menu_order', 'bw_custom_menu_order');
+
+add_filter('custom_menu_order', 'bw_custom_menu_order');
+add_filter('menu_order', 'bw_custom_menu_order');
 
 function bw_setup()
 {
@@ -66,18 +71,18 @@ function bw_setup()
     add_theme_support("title-tag");
     add_theme_support("custom-header");
     add_theme_support("custom-background");
-	add_theme_support('starter-content', [
-		'posts' => [
-			'home' => [
-				'post_type' => 'page',
-				'post_name' => 'home',
-				'post_title' => 'Home',
-				'post_content' => '',
-				'template'   => 'page-home.php',
-			],
-		],
+    add_theme_support('starter-content', [
+        'posts' => [
+            'home' => [
+                'post_type' => 'page',
+                'post_name' => 'home',
+                'post_title' => 'Home',
+                'post_content' => '',
+                'template' => 'page-home.php',
+            ],
+        ],
 
-	]);
+    ]);
     add_theme_support('woocommerce');
 
     add_editor_style('theme/css/editor-style.css');
