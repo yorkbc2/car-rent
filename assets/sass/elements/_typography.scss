@@ -12,7 +12,7 @@ $p_mobile: 0.8;
 
 $p_size: 18px;
 $ul_size: 18px;
-$menu_size: 16px;
+$menu_size: 18px;
 
 $p_line-height: 22px;
 $ul_line-height: 22px;
@@ -47,7 +47,7 @@ i.button-style {
 
     ul li,
     ol li {
-        font-size: $fonts_mobile * $menu_size;
+        font-size: $fonts_mobile * $ul_size;
         line-height: $fonts_mobile * $menu_line-height;
     }
 
