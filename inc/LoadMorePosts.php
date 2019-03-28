@@ -28,7 +28,7 @@ if (!class_exists('LoadMorePosts')) {
             $condition = is_front_page() || is_home() || is_archive();
 
             if (get_theme_mod('bw_load_more_enable') && $condition) {
-                wp_localize_script('jquery', 'jpAjax', [
+                wp_localize_script('brainworks-js', 'jpAjax', [
                     'action' => 'load_more_posts',
                     'nonce' => wp_create_nonce('load_more_posts_action'),
                     'url' => admin_url('admin-ajax.php'),
@@ -77,7 +77,7 @@ if (!class_exists('LoadMorePosts')) {
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 'posts_per_page' => get_option('posts_per_page'),
-                'order' => 'ASC', // ASC, DESC
+                'order' => 'DESC', // ASC, DESC
                 'orderby' => 'date',
                 'paged' => $paged,
             ];
