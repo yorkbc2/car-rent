@@ -1,6 +1,6 @@
 .link {
     text-decoration: underline;
-    color: $themeColorThree;
+    color: $themeColorTwo;
 }
 
 .bold {
@@ -92,11 +92,11 @@ em {
 .highlighted {
     display: inline-block;
     padding: 5px 15px;
-    background-color: $headerHighlightBgColor;
+    background-color: $textHighlightBgColor;
 
     &,
     a {
-        color: $headerHighlightColor;
+        color: $textHighlightColor;
     }
 }
 
