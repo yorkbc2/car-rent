@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*
-Theme Name: brainworks-v4.8.4
+Theme Name: car-rent-v1.0
 Theme URI:
 Text Domain: brainworks
 Author: Brain Works
@@ -169,4 +169,8 @@ img {
     @media #{$tablet} {
         background: none;
     }
+}
+
+a {
+    font-family: HelveticaLight;
 }

@@ -21,7 +21,7 @@
             ajaxLoadMorePosts(".js-load-more", ".js-ajax-posts");
         }
         stickFooter(".js-footer", ".js-container");
-        anotherHamburgerMenu(".js-menu", ".js-hamburger", ".js-menu-close");
+        activateMenu(".page-menu", ".hamburger");
         buyOneClick(".one-click", '[data-field-id="field7"]', "h1.page-name");
         d.on("copy", addLink);
         w.on("resize", function() {
@@ -69,33 +69,12 @@
             });
         }
     };
-    var anotherHamburgerMenu = function anotherHamburgerMenu(menuElement, hamburgerElement, closeTrigger) {
-        var Elements = {
-            menu: $(menuElement),
-            button: $(hamburgerElement),
-            close: $(closeTrigger)
-        };
-        Elements.button.add(Elements.close).on("click", function() {
-            Elements.menu.toggleClass("is-active");
+    var activateMenu = function activateMenu(menu, trigger) {
+        var $menu = $(menu), $trigger = $(trigger);
+        $trigger.on("click", function() {
+            $menu.toggleClass("active");
+            $trigger.toggleClass("active");
         });
-        Elements.menu.find("a").on("click", function() {
-            Elements.menu.removeClass("is-active");
-        });
-        var arrowOpener = function arrowOpener(parent) {
-            var activeArrowClass = "menu-item-has-children-arrow-active";
-            return $("<button />").addClass("menu-item-has-children-arrow").on("click", function() {
-                parent.children(".sub-menu").eq(0).slideToggle(300);
-                if ($(this).hasClass(activeArrowClass)) {
-                    $(this).removeClass(activeArrowClass);
-                } else {
-                    $(this).addClass(activeArrowClass);
-                }
-            });
-        };
-        var items = Elements.menu.find(".menu-item-has-children, .sub-menu-item-has-children");
-        for (var i = 0; i < items.length; i++) {
-            items.eq(i).append(arrowOpener(items.eq(i)));
-        }
     };
     var removeAllStyles = function removeAllStyles(elementParent) {
         elementParent.find(".sub-menu").removeAttr("style");

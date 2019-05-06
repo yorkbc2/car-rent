@@ -173,3 +173,11 @@
 %form-field-style {
     @include form-field-style();
 }
+
+
+@mixin flex-container($jc: flex-start, $dir: row, $fw: nowrap) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jc;
+    flex-wrap: $fw;
+}
