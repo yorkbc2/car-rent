@@ -22,7 +22,7 @@
         }
         stickFooter(".js-footer", ".js-container");
         activateMenu(".page-menu", ".hamburger");
-        buyOneClick(".one-click", '[data-field-id="field7"]', "h1.page-name");
+        buyOneClick(".one-click-ru", '[data-field-id="field11"]', "h1.page-name");
         d.on("copy", addLink);
         w.on("resize", function() {
             if (w.innerWidth >= 630) {
