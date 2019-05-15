@@ -16,7 +16,7 @@
 }
 
 @font-face {
-    src: url('assets/fonts/Light.ttf');
+    src: url('assets/fonts/light.ttf');
     font-family: HelveticaLight;
 }
 
@@ -24,5 +24,5 @@ $font-family-sans-serif: "Arial", "Helvetica", sans-serif;
 $font-family-serif: "Georgia", "Times New Roman", "Times", serif;
 $font-family-monospace: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
 
-$fontFamilyOne: HelveticaBold; //titles
-$fontFamilyTwo: HelveticaRegular; //body
+$fontFamilyOne: HelveticaLight; //titles
+$fontFamilyTwo: HelveticaLight; //body 

@@ -1,6 +1,19 @@
 .page-header {
   color: $headerFontColor;
   background-color: $headerBgColor;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.45);
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+
+  z-index: 1111;
+
+  @media screen and (max-width: 540px) {
+    position: relative;
+    width: 100%;
+  }
 
   a {
     color: #fff;
@@ -10,6 +23,10 @@
     @include flex-container(space-between);
     padding: 0 30px;
 
+    @media screen and (max-width: 640px) {
+      padding: 0 15px 15px;
+      flex-direction: column;
+    }
     .left,
     .right {
       flex: 1;
@@ -21,14 +38,42 @@
       }
       > div {
         @include flex-container(center, column);
-        &:not(:last-child) {
-          border-right: 1px solid #535252;
-        }
       }
 
       &.right {
+        flex: none;
         justify-content: flex-end;
         > div {
+        }
+        @media screen and (max-width: 640px) {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        > div.social-list-wrapper {
+          @media screen and (max-width: 980px) {
+            display: none;
+          }
+        }
+        > div.phone-wrapper {
+          .dropdown {
+            @media screen and (max-width: 640px) {
+              padding-top: 10px;
+              i {
+                display: none;
+              }
+              .dropdown-list {
+                position: static;
+                top: auto;
+                left: auto;
+                transform: none;
+                opacity: 1;
+                border: 0px;
+                padding: 10px 0px 0px;
+                z-index: 0;
+              }
+            }
+          }
         }
       }
     }
@@ -37,11 +82,21 @@
   .logo-container {
     margin-right: 35px;
     padding: 15px 0;
+    @media screen and (max-width: 1400px) {
+      img {
+        margin-right: 25px;
+      }
+    }
   }
 
   .lang-list,
   .social-list {
     padding: 0 25px;
+
+    @media screen and (max-width: 640px) {
+      padding: 0 10px;
+      border-right: 0px;
+    }
   }
 
   .header-button-wrapper {
@@ -52,6 +107,12 @@
     @media screen and (max-width: 1400px) {
       padding-right: 25px;
     }
+    @media screen and (max-width: 640px) {
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: 0px;
+      padding-top: 10px;
+    }
   }
 
   .dropdown {
@@ -59,10 +120,16 @@
   }
 
   .header-hamburger {
-    display: none;
+    display: none !important;
     padding-left: 25px;
-    @media screen and (min-width: 1400px) {
-      display: none !important;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    @media screen and (max-width: 640px) {
+      display: flex !important;
+      padding-left: 10px;
+      border-left: none !important;
     }
   }
 }
@@ -126,110 +193,31 @@
   width: 100%;
   max-width: 180px;
 
+  @media screen and (max-width: 640px) {
+    margin-right: 0px !important;
+    border-right: 0px !important;
+  }
+
   @include flex-container(center, column);
 
   img {
     display: inline-block;
     max-width: 130px;
     width: 100%;
+    min-width: 100px;
+  }
+  @media screen and (max-width: 640px) {
+    max-width: 140px;
+    img {
+      max-width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    img {
+      min-width: 80px;
+      max-width: 80px;
+      margin-right: 0px !important;
+    }
   }
 }
-
-// .page-header {
-// }
-
-// .logo {
-//     &,
-//     &-link,
-//     &-img {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-// }
-
-// .phone {
-//     @extend %reset-list;
-
-//     &,
-//     &-item {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-
-//     &-item {
-//         margin: 0 5px;
-//     }
-
-//     &-number {
-//         display: inline-block;
-//         text-decoration: none;
-
-//         &:hover {
-//             text-decoration: underline;
-//         }
-//     }
-// }
-
-// .social {
-//     @extend %reset-list;
-
-//     &,
-//     &-item {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-
-//     &-item {
-//         margin: 0 5px;
-//     }
-
-//     &-link {
-//         display: block;
-//         text-align: center;
-//         text-decoration: none;
-
-//         &:hover {
-//         }
-//     }
-// }
-
-// .messenger {
-//     @extend %reset-list;
-
-//     &,
-//     &-item {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-
-//     &-item {
-//         margin: 0 5px;
-//     }
-
-//     &-link {
-//         display: block;
-//         text-align: center;
-//         text-decoration: none;
-
-//         &:hover {
-//         }
-//     }
-// }
-
-// .lang {
-//     @extend %reset-list;
-
-//     &,
-//     &-item {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-
-//     &-item {
-//         margin: 0 5px;
-
-//         a {
-//             display: block;
-//         }
-//     }
-// }

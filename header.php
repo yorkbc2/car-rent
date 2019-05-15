@@ -27,66 +27,54 @@
                     </div>
                     <nav class="page-menu">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    Главная
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Услуги
-                                </a>
-                            </li>
+                            <?php
+                        $menu_name = 'main-nav';
+                        $menu_items = [];
 
+                        if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+                            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                            if ($menu && $menu->term_id) $menu_items = wp_get_nav_menu_items($menu->term_id);
+                        }
+                        foreach ($menu_items as $item) {
+                            ?>
                             <li>
-                                <a href="#">
-                                    Условия аренды
+                                <a href="<?php echo $item->url ?>">
+                                    <?php echo $item->title; ?>
                                 </a>
                             </li>
-
-                            <li>
-                                <a href="#">
-                                    Выбрать авто
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    Контакты
-                                </a>
-                            </li>
+                            <?php 
+                        }
+                        ?>
                         </ul>
                     </nav>
                 </div>
                 <div class="right">
-                    <div>
+                    <!-- <div class="social-list-wrapper">
                         <ul class="social-list social-list--white">
+                            <?php $socials = get_social(); ?>
+                            <?php foreach ($socials as $social): ?>
                             <li>
-                                <a href="#">
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/svg/facebook.svg"
-                                        alt="">
+                                <a href="<?php echo $social['url'] ?>">
+                                    <?php echo $social['icon-html']; ?>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/svg/instagram.svg"
-                                        alt="">
-                                </a>
-                            </li>
+                            <?php endforeach; ?>
                         </ul>
-                    </div>
+                    </div> -->
                     <div>
+                        <?php $languages = pll_the_languages([ 'raw' => 1, 'hide_if_empty' => 0 ]); ?>
                         <ul class="lang-list">
+                            <?php foreach ($languages as $lang): ?>
                             <li>
-                                <a href="#">РУС</a>
+                                <a href="<?php echo $lang['url']; ?>">
+                                    <?php echo $lang['name'] ?>
+                                </a>
                             </li>
-                            <li>
-                                <a href="#">ENG</a>
-                            </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div>
-                        <div class="dropdown">
+                    <div class="phone-wrapper">
+                        <div class="dropdown <?php echo is_front_page() ? '' : 'dropdown--inverse' ?>">
                             <?php $phones = get_phones(); ?>
                             <a href="tel:<?php the_phone_number($phones[0]); ?>">
                                 <i class="fal fa-chevron-down"></i> <?php echo $phones[0]; ?>
@@ -105,7 +93,7 @@
                         </div>
                     </div>
                     <div class="header-button-wrapper">
-                        <button class="header-call-back button-medium button-outlined button-inverse">
+                        <button class="header-call-back button-medium button-outlined button-inverse header-call-back-<?php echo pll_current_language('slug'); ?>">
                             <?php _e('Оставить заявку', 'brainworks'); ?>
                         </button>
                     </div>
@@ -117,3 +105,5 @@
                 </div>
             </div>
         </header>
+
+        <div class="container js-container">

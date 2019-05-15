@@ -238,7 +238,7 @@ if (!function_exists('get_social')) {
                 'url' => get_theme_mod('bw_social_facebook'),
                 'text' => 'Facebook',
                 'icon' => 'fab fa-facebook-f',
-                'icon-html' => get_theme_mod('bw_social_facebook_icon'),
+                'icon-html' => '<img src="'.get_template_directory_uri().'/assets/svg/facebook.svg" alt="">',
             ],
             'linkedin' => [
                 'url' => get_theme_mod('bw_social_linkedin'),
@@ -250,7 +250,7 @@ if (!function_exists('get_social')) {
                 'url' => get_theme_mod('bw_social_instagram'),
                 'text' => 'Instagram',
                 'icon' => 'fab fa-instagram',
-                'icon-html' => get_theme_mod('bw_social_instagram_icon'),
+                'icon-html' => '<img src="'.get_template_directory_uri().'/assets/svg/instagram.svg" alt="">',
             ],
             'google-plus' => [
                 'url' => get_theme_mod('bw_social_google_plus'),

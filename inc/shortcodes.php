@@ -75,7 +75,7 @@ if (!function_exists('bw_social_shortcode')) {
                     esc_attr($social['icon']), esc_attr($social['text'])
                 );
 
-                $icon = !empty($social['icon-html']) ? strip_tags($social['icon-html'], '<i>') : $icon_fallback;
+                $icon = !empty($social['icon-html']) ? $social['icon-html'] : $icon_fallback;
 
                 $items .= sprintf(
                     '<li class="social-item">%s</li>',
@@ -88,7 +88,7 @@ if (!function_exists('bw_social_shortcode')) {
                 );
             }
 
-            $output = sprintf('<ul class="social">%s</ul>', $items);
+            $output = sprintf('<ul class="social social-list">%s</ul>', $items);
         }
 
         return $output;

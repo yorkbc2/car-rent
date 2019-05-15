@@ -16,6 +16,7 @@ ol {
 
 ul.social-list {
   @include default-list();
+  text-align: center;
   li {
     margin: 0 10px;
 
@@ -83,17 +84,22 @@ ul.clear {
     top: -999px;
     padding: 20px 25px;
     z-index: 1000;
-    border: 1px solid #fff;
+    border: 1px solid #535252;
     border-top: 0px;
-    background-color: transparent;
 
-    width: 100%;
-    left: 0px;
+    width: calc(100% + 2px);
+    left: -1px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    background-color: #000;
 
     li {
         margin-bottom: 10px;
+        text-align: center;
+
+        a { 
+          font-size: 16px;
+        }
     }
   }
 
