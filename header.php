@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Комфортный трансфер в любую точку Украины" />
+    <meta property="og:description" content="Компания Premium Car Rental предоставляет услуги проката автомобилей">
+    <meta property="og:url" content="https://premiumcarrental.com.ua/" />
+    <meta property="og:site_name" content="Premium Car Rental" />
+    <meta property="og:image" content="https://premiumcarrental.com.ua/wp-content/uploads/premiumcarrental-cover.png" />
+    <meta property="og:image:secure_url" content="https://premiumcarrental.com.ua/wp-content/uploads/premiumcarrental-cover.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="629" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Комфортный трансфер в любую точку Украины" />
+    <meta name="twitter:image" content="https://premiumcarrental.com.ua/wp-content/uploads/premiumcarrental-cover.png" />
+
     <link rel="shortcut icon" href="<?php echo esc_url(get_template_directory_uri() . '/assets/img/favicon.ico'); ?>"
         type="image/x-icon">
     <link rel="icon" href="<?php echo esc_url(get_template_directory_uri() . '/assets/img/favicon.ico'); ?>"
